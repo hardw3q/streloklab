@@ -1,8 +1,12 @@
-module com.pixels.steloklab {
+open module com.pixels.steloklab {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
+    requires java.net.http;
+    requires java.sql;
+    requires java.naming;
+    requires org.hibernate.orm.core;
+    requires jakarta.persistence;
 
-    opens com.pixels.steloklab to javafx.fxml;
-    opens com.pixels.steloklab.controller to javafx.fxml;
     exports com.pixels.steloklab;
 }
