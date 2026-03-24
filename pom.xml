@@ -12,18 +12,20 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>5.10.0</junit.version>
+    <!-- 17.0.7+ fixes macOS Glass crash (invalid NSTrackingRectTag on window resize) -->
+    <javafx.version>17.0.15</javafx.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>17.0.6</version>
+      <version>${javafx.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>17.0.6</version>
+      <version>${javafx.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -81,6 +83,7 @@
               <stripDebug>true</stripDebug>
               <noHeaderFiles>true</noHeaderFiles>
               <options>
+                <option>--enable-native-access=javafx.graphics</option>
                 <option>--add-opens=java.base/java.lang=org.hibernate.orm.core</option>
                 <option>--add-opens=java.base/java.util=org.hibernate.orm.core</option>
               </options>
